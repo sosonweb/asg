@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_launch_configuration" "this" {
-  name          = var.name
+  name_prefix   = "${var.name}-"
   image_id      = var.image_id
   instance_type = var.instance_type
 
