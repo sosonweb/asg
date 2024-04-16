@@ -19,4 +19,7 @@ resource "aws_autoscaling_group" "this" {
   max_size             = var.max_size
   desired_capacity     = var.desired_capacity
   vpc_zone_identifier  = [var.subnet_id]
+  lifecycle {
+   create_before_destroy = true 
+ }
 }
