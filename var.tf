@@ -38,3 +38,7 @@ variable "subnet_id" {
   description = "The IDs of the subnets where instances should be launched"
   default     = "10.0.1.0/24"
 }
+variable "user_data" {
+  description = "The user data script to run on the instances."
+  default     = local.o_full_user_data
+}

@@ -6,7 +6,7 @@ resource "aws_launch_configuration" "this" {
   name_prefix   = "${var.name}-"
   image_id      = var.image_id
   instance_type = var.instance_type
-
+  user_data = var.local.o_full_user_data
   lifecycle {
     create_before_destroy = true
   }
@@ -19,7 +19,5 @@ resource "aws_autoscaling_group" "this" {
   max_size             = var.max_size
   desired_capacity     = var.desired_capacity
   vpc_zone_identifier  = [var.subnet_id]
-  lifecycle {
-   create_before_destroy = true 
- }
+
 }
