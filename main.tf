@@ -6,7 +6,7 @@ resource "aws_launch_configuration" "this" {
   name          = var.name
   image_id      = var.image_id
   instance_type = var.instance_type
-
+  user_data = var.local.o_full_user_data
   lifecycle {
     create_before_destroy = true
   }
