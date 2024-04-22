@@ -2,11 +2,15 @@ provider "aws" {
   region = var.region  # Update with your desired region
 }
 
+module "tf_aws_userdata" {
+  source = "git::ssh://github.com/sosonweb/tf_aws_userdata"
+}
+
 resource "aws_launch_configuration" "this" {
   name_prefix   = "${var.name}-"
   image_id      = var.image_id
   instance_type = var.instance_type
-  user_data = var.local.o_full_user_data
+  user_data     = var.user_data
   lifecycle {
     create_before_destroy = true
   }
