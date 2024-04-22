@@ -40,5 +40,5 @@ variable "subnet_id" {
 }
 variable "user_data" {
   description = "The user data script to run on the instances."
-  default     = local.o_full_user_data
+  default     = module.tf_aws_userdata.op_userdata
 }
