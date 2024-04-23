@@ -7,6 +7,7 @@ resource "aws_launch_configuration" "this" {
   image_id      = var.image_id
   instance_type = var.instance_type
   user_data     = var.user_data
+  key_name      = "thota_keypair"
   iam_instance_profile = aws_iam_instance_profile.ssm_instance_profile.name
   security_groups      =  [aws_security_group.asg_sg.id]
   lifecycle {
