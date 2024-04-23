@@ -8,7 +8,7 @@ resource "aws_launch_configuration" "this" {
   instance_type = var.instance_type
   user_data     = var.user_data
   iam_instance_profile = aws_iam_instance_profile.ssm_instance_profile.name
-
+  security_groups      =  [aws_security_group.asg_sg.id]
   lifecycle {
     create_before_destroy = true
   }
