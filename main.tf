@@ -4,7 +4,7 @@ provider "aws" {
 
 module "tf_aws_userdata" {
   source = "git::ssh://git@github.com/sosonweb/tf_aws_userdata.git?ref=fire"
-  i_app_specific_user_data = module.tf_aws_userdata.op_userdata
+  /*i_app_specific_user_data = module.tf_aws_userdata.op_userdata*/
 }
 output "op_userdata" {
   value = module.tf_aws_userdata.op_userdata
