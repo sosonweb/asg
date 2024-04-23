@@ -26,6 +26,6 @@ resource "aws_autoscaling_group" "this" {
   min_size             = var.min_size
   max_size             = var.max_size
   desired_capacity     = var.desired_capacity
-  vpc_zone_identifier  = [var.private_subnet_id]
+  vpc_zone_identifier  = [var.subnet_id]
 
 }

@@ -34,7 +34,7 @@ variable "desired_capacity" {
   default     = 1
 }
 
-variable "private_subnet_id" {
+variable "subnet_id" {
   description = "The IDs of the subnets where instances should be launched"
   default     = "10.0.1.0/24"
 }
