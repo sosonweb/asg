@@ -47,7 +47,3 @@ variable "vpc_id" {
   description = "The ID of the VPC where resources will be created"
   type        = string
 }
-
-variable "vpc_id" {
-  description = "vpc_id for security group"
-}
