@@ -6,7 +6,7 @@ variable "region" {
 
 variable "image_id" {
   description = "The ID of the AMI to use for the launch configuration"
-  default     = "ami-051f8a213df8bc089"
+  default     = "ami-061612d72693df8ce"
 }
 
 variable "instance_type" {
