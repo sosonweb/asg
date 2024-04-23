@@ -13,6 +13,23 @@ resource "aws_launch_configuration" "this" {
     create_before_destroy = true
   }
 }
+resource "aws_security_group" "asg_sg" {
+  name        = "asg-security-group"
+  description = "Security group for ASG instances"
+  vpc_id      = var.vpc_id  
+
+  egress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all outbound traffic on port 443 for HTTPS"
+  }
+
+  tags = {
+    Name = "ASG Security Group"
+  }
+}
 
 resource "aws_autoscaling_group" "this" {
   name                 = var.name
@@ -23,6 +40,9 @@ resource "aws_autoscaling_group" "this" {
   vpc_zone_identifier  = [var.subnet_id]
 
 }
+
+
+
 resource "aws_iam_role" "ssm_role" {
   name = "SSMRoleForEC2"
 
